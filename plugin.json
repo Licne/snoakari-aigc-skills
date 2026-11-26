@@ -1,0 +1,12 @@
+{
+  "name": "snoakari-aigc-skills",
+  "displayName": "Snoakari AIGC Skills",
+  "description": "Modular AIGC prompting and workflow skill library covering OpenAI gpt-image-2.6/2.5 (base prompting, costume concept sheets) and future multi-modal generative models.",
+  "version": "0.1.0",
+  "repository": "https://github.com/Licne/snoakari-aigc-skills",
+  "suggestedPrompts": [
+    "用 gpt-image-2.6-sunburst 帮我写一套电商主图提示词和 API 参数",
+    "设计一套无人物角色服饰概念设定板提示词（含中英双语对照）",
+    "把这段生图提示词按 gpt-image 规范优化并检查参数冲突"
+  ]
+}
