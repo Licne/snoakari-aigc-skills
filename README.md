@@ -1,6 +1,6 @@
 # snoakari-aigc-skills
 
-面向多模态 AIGC 模型的提示词与工作流 Agent Skill 经验库（与 [snoakari-gpt-image-webui](https://github.com/Licne/snoakari-gpt-image-webui) 同系列）。
+面向多模态 AIGC 模型的提示词与工作流 Agent Skill 经验库。
 
 仓库采用 **单仓库（Monorepo）+ 模型前缀隔离 + 渐进式加载** 设计，支持按模型系列与垂直场景**自由勾选安装**，也支持整包挂载为 Antigravity 全局插件。
 

@@ -6,7 +6,7 @@
 
 ## 1. 仓库定位与架构
 
-`snoakari-aigc-skills` 是一个**多模态 AIGC 提示词与工作流 Skill 经验库**（与 `Licne/snoakari-gpt-image-webui` 同属 `snoakari` 系列），采用 **Monorepo + 单层平铺前缀命名**，同时兼容：
+`snoakari-aigc-skills` 是一个**多模态 AIGC 提示词与工作流 Skill 经验库**，采用 **Monorepo + 单层平铺前缀命名**，同时兼容：
 - **Antigravity Plugin**：根目录 `plugin.json` 允许整包挂载到 `~/.gemini/config/plugins/snoakari-aigc-skills`。
 - **标准 Agent Skills & 选择性安装**：`skills/<skill-name>/SKILL.md` 位于第一层，兼容 `npx skills add Licne/snoakari-aigc-skills --skill <name>` 及任意 Agent 的 `skills/*/SKILL.md` 自动发现。
 
