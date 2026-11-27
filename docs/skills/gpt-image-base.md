@@ -51,4 +51,4 @@
 npx skills add Licne/snoakari-aigc-skills --skill gpt-image-base
 ```
 
-> 内部文件说明：`SKILL.md` 为 AI 执行指令，[`references/templates.md`](./references/templates.md) 为 9 套通用模板，[`references/api-params.md`](./references/api-params.md) 为完整参数表与 JSON 示例。
+> 内部文件说明：[`SKILL.md`](../../skills/gpt-image-base/SKILL.md) 为 AI 执行指令，[`references/templates.md`](../../skills/gpt-image-base/references/templates.md) 为 9 套通用模板，[`references/api-params.md`](../../skills/gpt-image-base/references/api-params.md) 为完整参数表与 JSON 示例。

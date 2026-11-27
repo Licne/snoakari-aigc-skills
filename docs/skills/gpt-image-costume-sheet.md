@@ -1,7 +1,7 @@
 # `gpt-image-costume-sheet` 使用说明
 
 > **定位**：面向 `gpt-image-2.5-sunburst` / `gpt-image-2.6-sunburst` 的**角色服饰概念设定板、服装提取、换装融合与脱层去衣**专项 Skill。  
-> **配套建议**：可独立使用，建议与 [`gpt-image-base`](../gpt-image-base/README.md) 搭配使用。
+> **配套建议**：可独立使用，建议与 [`gpt-image-base`](./gpt-image-base.md) 搭配使用。
 
 ---
 
@@ -42,7 +42,7 @@
 
 - **自动规避审核误杀（Safety Guardrails）**：针对 GPT 系列生图模型的 `content_policy_violation` 误报，自动将 `undress / strip / school uniform / succubus / torn` 等高危词替换为视觉等效的安全工业术语。
 - **默认无杂乱引导线**：右侧细节特写默认排成干净的独立宫格，不画交叉箭头线（除非你主动要求加引导线）。
-- **支持 6 种预设画风**：精致日系赛璐璐（默认）、日系半厚涂、轻小说柔美平涂、都市潮酷高对比、韩系半写实厚涂、三渲二 NPR（详见 [`references/modules-guide.md`](./references/modules-guide.md)）。
+- **支持 6 种预设画风**：精致日系赛璐璐（默认）、日系半厚涂、轻小说柔美平涂、都市潮酷高对比、韩系半写实厚涂、三渲二 NPR（详见 [`references/modules-guide.md`](../../skills/gpt-image-costume-sheet/references/modules-guide.md)）。
 - **Mode D 防脑补参数**：在 `gpt-image-2.6-sunburst` 上跑脱层任务时，自动建议将 `complexity` 降为 `low` / `medium`，防止模型擅自多画道具。
 
 ---
@@ -57,4 +57,4 @@ npx skills add Licne/snoakari-aigc-skills --skill gpt-image-base --skill gpt-ima
 npx skills add Licne/snoakari-aigc-skills --skill gpt-image-costume-sheet
 ```
 
-> 内部文件说明：`SKILL.md` 为 AI 执行指令，[`references/modules-guide.md`](./references/modules-guide.md) 包含 6 套画风预设、1~5+ 层服饰结构模板、9 类细节栏模块、安全词替换表等完整素材库。
+> 内部文件说明：[`SKILL.md`](../../skills/gpt-image-costume-sheet/SKILL.md) 为 AI 执行指令，[`references/modules-guide.md`](../../skills/gpt-image-costume-sheet/references/modules-guide.md) 包含 6 套画风预设、1~5+ 层服饰结构模板、9 类细节栏模块、安全词替换表等完整素材库。
