@@ -1,4 +1,8 @@
-# snoakari-aigc-skills
+<p align="center"><img src="assets/docs_banner.jpg" alt="SnoAkari AIGC Skills banner" width="800"></p>
+
+# SnoAkari AIGC Skills
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 面向多模态 AIGC 模型的提示词与工作流 Agent Skill 经验库。
 
