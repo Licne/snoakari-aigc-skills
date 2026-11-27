@@ -1,21 +1,23 @@
 ---
 name: gpt-image-costume-sheet
 description: >-
-  Specialized prompting skill for OpenAI gpt-image-2.5-sunburst and
-  gpt-image-2.6-sunburst covering four bilingual (English prompt + full Chinese
-  translation) character costume workflows: (1) characterless costume concept
-  breakdown sheets from text, (2) image-to-sheet costume extraction from a
-  character image, (3) character-to-costume fusion dressing a character with a
+  Specialized prompting skill originally built and verified on OpenAI
+  gpt-image-2.5-sunburst (and theoretically compatible with gpt-image-2.6 and
+  adjacent gpt-image-2.x models) covering four bilingual (English prompt + full
+  Chinese translation) character costume workflows: (1) characterless costume
+  concept breakdown sheets from text, (2) image-to-sheet costume extraction from
+  a character image, (3) character-to-costume fusion dressing a character with a
   concept sheet, and (4) layer-removal / un-equipping prompts removing garments
   shown in a reference sheet from a multi-layered character illustration. Use
   whenever the user asks to design an outfit concept sheet, extract an outfit
   from a character image, dress/fuse a character with a concept sheet, or
-  remove/unequip garment layers on gpt-image sunburst models.
+  remove/unequip garment layers on gpt-image models.
 ---
 
 # GPT-Image Costume Sheet & Character Fusion Skill
 
-> **Model Scope**: Optimized for **`gpt-image-2.5-sunburst`** and **`gpt-image-2.6-sunburst`**.
+> **Verified On**: **`gpt-image-2.5-sunburst`** (battle-tested in production workflows).
+> **Expected Compatibility**: Theoretically compatible with **`gpt-image-2.6-sunburst`**, `flare` variants, and other adjacent `gpt-image-2.x` models (not yet individually verified; note any version-specific parameter adjustments such as `complexity` for `2.6+`).
 > **Pairs with**: `gpt-image-base` (defer general API parameter rules and non-costume prompting to `gpt-image-base`).
 
 ## Overview

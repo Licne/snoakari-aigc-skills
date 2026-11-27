@@ -1,6 +1,9 @@
 # `gpt-image-base` 使用说明
 
-> **定位**：OpenAI `gpt-image-2.6` / `gpt-image-2.5`（`sunburst` & `flare`）系列的**通用提示词与 API 参数底座**。  
+> **定位**：OpenAI **`gpt-image-2.x`** 系列及相近 GPT-Image 模型的**通用提示词与 API 参数底座**。  
+> **依据与兼容说明**：本 Skill 基于 OpenAI 官方 `gpt-image` 提示词指南、Cookbook 最佳实践与 API 文档整理（属于文档驱动的通用底座，后续将随实战反馈持续迭代）。
+> - **通用规范**（Spec 结构、材质/光影描述、引号文字渲染、Diff 防漂移编辑、多图参考、透明底规范）：理论上适用于整个 **`gpt-image-2.x` 系列**（如 `2.5` / `2.6` 的 `sunburst` 与 `flare` 分支，以及相近版本）。
+> - **`2.6+` 专属能力**（`complexity`、`markup` 标注编辑、`output_format: "svg"` / `"gif"`）：仅在目标模型/中转站支持对应参数时启用，旧版本忽略即可。  
 > **适用对象**：日常文生图、局部改图、多图参考、透明抠图、原生 SVG 图标、无缝循环 GIF 动图，以及优化已有提示词和排查参数冲突。
 
 ---

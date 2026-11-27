@@ -1,6 +1,7 @@
 # `gpt-image-costume-sheet` 使用说明
 
-> **定位**：面向 `gpt-image-2.5-sunburst` / `gpt-image-2.6-sunburst` 的**角色服饰概念设定板、服装提取、换装融合与脱层去衣**专项 Skill。  
+> **定位**：面向 GPT-Image 系列模型的**角色服饰概念设定板、服装提取、换装融合与脱层去衣**专项 Skill。  
+> **实测与兼容说明**：本 Skill 最初基于 **`gpt-image-2.5-sunburst`** 实战打磨与验证；理论上兼容 **`gpt-image-2.6`**、同系列 `flare` 分支及其他相近 `gpt-image-2.x` 模型（尚未逐一实测，欢迎在 Issues 中反馈不同版本的实测表现）。  
 > **配套建议**：可独立使用，建议与 [`gpt-image-base`](./gpt-image-base.md) 搭配使用。
 
 ---

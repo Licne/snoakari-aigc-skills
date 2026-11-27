@@ -1,17 +1,21 @@
 ---
 name: gpt-image-base
 description: >-
-  Foundational, general-purpose prompting and API parameter guide exclusively
-  for OpenAI's gpt-image-2.6 and gpt-image-2.5 models (sunburst and flare
-  variants). Use as the base skill when writing, reviewing, or optimizing
-  general gpt-image prompts, choosing flare vs. sunburst, tuning API parameters
-  (complexity, quality, background, output_format, markup, input_fidelity),
-  generating SVG/GIF assets, or fixing drift in multi-turn edits.
+  Foundational, general-purpose prompting and API parameter guide for OpenAI's
+  gpt-image-2.x model family (such as gpt-image-2.6 and gpt-image-2.5 sunburst /
+  flare variants, and adjacent gpt-image models). Synthesized from OpenAI's
+  official prompting guides and API documentation. Use as the base skill when
+  writing, reviewing, or optimizing general gpt-image prompts, choosing flare
+  vs. sunburst, tuning API parameters (complexity, quality, background,
+  output_format, markup, input_fidelity), generating SVG/GIF assets, or fixing
+  drift in multi-turn edits.
 ---
 
 # GPT-Image Base Prompting & API Spec Skill
 
-This is the **foundational base skill** for OpenAI's `gpt-image-2.6` and `gpt-image-2.5` (`sunburst` & `flare`) series. Use it for universal prompting structure, model/parameter routing, and edit stability; pair or defer to specialized `gpt-image-*` domain skills (such as `gpt-image-costume-sheet`) when a dedicated vertical skill applies.
+> **Basis**: Synthesized from OpenAI's official `gpt-image` prompting guides, Cookbook patterns, and API documentation (general baseline; refine with empirical findings over time).
+> **Model Scope**: Applies broadly to the **`gpt-image-2.x` family and adjacent GPT-class image models** (currently exemplified by `gpt-image-2.5` and `gpt-image-2.6` `sunburst` / `flare` variants). Core Spec prompting, text rendering, multi-image referencing, and Diff editing rules generalize across the series; features marked `2.6+` (`complexity`, `markup`, `svg`, `gif`) apply only when the target model/endpoint supports them.
+> **Role**: Foundational base skill; pair or defer to specialized `gpt-image-*` domain skills (such as `gpt-image-costume-sheet`) when a dedicated vertical skill applies.
 
 ## Core Philosophy
 

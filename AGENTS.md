@@ -57,7 +57,7 @@ snoakari-aigc-skills/
 
 每次新增、重命名或删除 Skill，必须同步完成以下 5 项：
 1. **Skill 指令文件**：创建/更新 `skills/<family>-<topic>/SKILL.md` 及必要的 `references/` / `scripts/` / `assets/`。**严禁在 `skills/<family>-<topic>/` 目录内放置 `README.md`、`CHANGELOG.md` 等非规范文档**（遵循 `agentskills.io`、OpenAI、Anthropic 官方规范）。
-2. **人类使用说明（必写）**：在仓库根级 `docs/skills/<family>-<topic>.md` 创建/更新中文使用说明，必须包含：适用模型、功能概述、**“怎么对 AI 说”的具体对话示例**、输出说明与单独安装命令。
+2. **人类使用说明（必写）**：在仓库根级 `docs/skills/<family>-<topic>.md` 创建/更新中文使用说明，必须包含：**依据来源与实测/理论兼容状态**（明确区分已实测模型与理论兼容范围）、功能概述、**“怎么对 AI 说”的具体对话示例**、输出说明与单独安装命令。
 3. **更新根目录 `README.md`**：同步更新“Skill 索引表”（链接到 `docs/skills/<family>-<topic>.md`）和对应的“选择性安装命令”示例。
 4. **检查 `plugin.json`**：确认 `description`、`version`（按语义化版本递增）和 `suggestedPrompts`（最多 3 条）依然准确；**切勿**添加非标准顶层字段。
 5. **Git 提交**：使用 Conventional Commits（如 `feat(skills): add minimax-h3-base`、`refactor(gpt-image-costume-sheet): refine Mode D rules`）。

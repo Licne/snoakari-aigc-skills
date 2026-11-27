@@ -4,14 +4,17 @@ Keep technical controls in the API payload rather than natural-language prompt t
 
 ---
 
-## 1. Model Selection Matrix
+## 1. Model Selection Matrix (`gpt-image-2.x` Lineage)
+
+OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare`) starting with `2.5`, and expanded native `svg` / `gif` / `markup` / `complexity` controls in `2.6`. The same Spec prompting principles also apply to earlier `gpt-image-2` and future adjacent `gpt-image-2.x+` releases (omit `2.6+`-only parameters if an endpoint does not support them).
 
 | Model ID | Tier | Best Used For |
 | :--- | :--- | :--- |
-| `gpt-image-2.6-sunburst` | Flagship / Precision | Final production renders, dense typography, infographics, multi-turn edit consistency, SVG/GIF/Markup |
-| `gpt-image-2.6-flare` | Speed / High-Throughput | Rapid prototyping (~2x faster), layout exploration, batch drafts, simple icons/stickers |
+| `gpt-image-2.6-sunburst` *(or newer `sunburst`)* | Flagship / Precision | Final production renders, dense typography, infographics, multi-turn edit consistency, SVG/GIF/Markup |
+| `gpt-image-2.6-flare` *(or newer `flare`)* | Speed / High-Throughput | Rapid prototyping (~2x faster), layout exploration, batch drafts, simple icons/stickers |
 | `gpt-image-2.5-sunburst` | Previous Flagship | Stable 2.5 production pipelines |
 | `gpt-image-2.5-flare` | Previous Speed | Fast 2.5 iteration pipelines |
+| Other `gpt-image-2.x` / compatible endpoints | General Baseline | Core Spec prompt structure, Diff edits, and standard `size`/`quality`/`background`/`input_fidelity` params |
 
 ---
 
