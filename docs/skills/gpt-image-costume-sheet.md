@@ -43,7 +43,7 @@
 
 - **自动规避审核误杀（Safety Guardrails）**：针对 GPT 系列生图模型的 `content_policy_violation` 误报，自动将 `undress / strip / school uniform / succubus / torn` 等高危词替换为视觉等效的安全工业术语。
 - **默认无杂乱引导线**：右侧细节特写默认排成干净的独立宫格，不画交叉箭头线（除非你主动要求加引导线）。
-- **支持 6 种预设画风**：精致日系赛璐璐（默认）、日系半厚涂、轻小说柔美平涂、都市潮酷高对比、韩系半写实厚涂、三渲二 NPR（详见 [`references/modules-guide.md`](../../skills/gpt-image-costume-sheet/references/modules-guide.md)）。
+- **画风自由定制 + 可选兜底**：默认按 4 要素公式适配任意画风（写实戏服、水彩手稿、美漫、二次元、三渲二等）；用户未指定画风时，自动回落至中性 2D 概念稿或 [`references/modules-guide.md`](../../skills/gpt-image-costume-sheet/references/modules-guide.md) 中的 6 套二次元/游戏可选预设。
 - **Mode D 防脑补参数**：在 `gpt-image-2.6-sunburst` 上跑脱层任务时，自动建议将 `complexity` 降为 `low` / `medium`，防止模型擅自多画道具。
 
 ---

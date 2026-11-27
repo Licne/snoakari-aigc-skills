@@ -80,8 +80,11 @@ Always open with a clear no-character declaration and background setting:
 - **Display Mode**: Default to `Invisible ghost mannequin style (3D hollow clothing silhouette showing natural worn volume and realistic cloth folds)`. Support alternatives if requested (e.g., `flat lay display`, `floating layered presentation`).
 - **Main Views**: Default to `front three-quarter view and back view side-by-side`. Adjust if user requests front-only, 3-view, or inner/outer split views.
 
-### 2. Art Style Slot (Fully Customizable)
-Adapt the `- Art Style & Rendering:` block to match whatever style the user specifies (default to **Modern Anime Cel-Shaded** if unspecified). Refer to [modules-guide.md](./references/modules-guide.md) for ready-to-use style blocks.
+### 2. Art Style Slot (Formula-First with Optional Fallback)
+Build the `- Art Style & Rendering:` block dynamically to match **any** style the user specifies (anime, painterly, watercolor fashion sketch, realistic film costume, Western comic, 3D NPR, etc.) using the 4-part formula:
+`[Visual Medium] + [Linework / Edge Treatment] + [Lighting & Shading] + [Material Rendering]`
+- If a dedicated art-style skill is active or the user supplies a custom style block, defer to it directly.
+- Only when the user **omits** a style preference, fall back to a clean neutral 2D concept illustration or pick an appropriate optional preset from Section 1 of [modules-guide.md](./references/modules-guide.md).
 
 ### 3. Dynamic Garment Layering (`Left Main Section`)
 Build the bullet list dynamically to match the **actual garment structure** of the design (1 to 5+ layers, no fixed count):

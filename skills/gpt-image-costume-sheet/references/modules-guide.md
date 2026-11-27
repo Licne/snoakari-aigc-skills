@@ -4,9 +4,16 @@ Use this reference to mix and match art styles, garment layer structures, right-
 
 ---
 
-## 1. Art Style Presets (`- Art Style & Rendering:`)
+## 1. Art Style Formula & Optional Fallback Examples (`- Art Style & Rendering:`)
 
-1. **Modern Anime Cel-Shaded (精致日系赛璐璐 - Default)**
+**Primary Rule (Formula-First)**: Compose the style block dynamically for **any** requested aesthetic using:
+`[Visual Medium] + [Linework / Edge Treatment] + [Lighting & Shading] + [Material Rendering]`
+
+> Example (non-anime): *Fashion watercolor concept illustration, loose graphite underdrawing with crisp ink contours, airy sunlit paper wash lighting, translucent silk and matte wool pigment texture.*
+
+**Optional Fallback Presets (Anime & Game Examples)**: Use ONLY if the user does not specify a style (or explicitly requests one of these aesthetics):
+
+1. **Modern Anime Cel-Shaded (精致日系赛璐璐)**
    `High-end modern Japanese anime cel-shaded game illustration, ultra-crisp delicate ink linework with subtle line-weight variation, bright clear colors, sharp two-tone and soft three-tone cel shadows, clean anime rim highlights, precise drawn seam lines, and glossy metallic specular accents.`
 2. **Japanese Semi-Painted / Painterly (日系厚涂 / 半厚涂)**
    `High-end Japanese anime painterly digital illustration, rich subtle brushwork blended with crisp delicate edge linework, luminous studio lighting, realistic fabric weight, intricate textile weaves, visible seam stitching, natural multi-layered cloth folds, and soft specular highlights on metal and leather.`
