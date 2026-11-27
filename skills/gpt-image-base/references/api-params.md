@@ -85,7 +85,7 @@ OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare
 }
 ```
 
-### D. Native Looping GIF (`2.6`)
+### D. Native Looping GIF (`2.6+`)
 ```json
 {
   "model": "gpt-image-2.6-sunburst",
@@ -99,3 +99,11 @@ OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare
   "n": 1
 }
 ```
+
+---
+
+## 5. Empirical Notes (实战经验沉淀区)
+
+> This section is reserved for **verified, real-world findings** discovered during actual API/WebUI usage (distinct from the official documentation baseline above). Add dated notes with the exact tested model ID whenever a quirk, relay limitation, or winning pattern is confirmed.
+
+- *(No custom empirical overrides recorded yet — append verified model-specific observations here as you test `2.5` / `2.6` / relay endpoints.)*

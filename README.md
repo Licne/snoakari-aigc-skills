@@ -12,7 +12,7 @@
 
 | Skill 名称 | 定位 | 适用范围与实测状态 | 使用说明 | AI 指令 | 简介 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `gpt-image-base` | 通用底座 | `gpt-image-2.x` 通用（基于官方文档整理；`2.6+` 含 `complexity`/`markup`/`svg`/`gif`） | [使用说明](./docs/skills/gpt-image-base.md) | [SKILL.md](./skills/gpt-image-base/SKILL.md) | 通用 Spec 提示词结构、`flare` vs `sunburst` 选型、API 参数规范与 9 套通用模板 |
+| `gpt-image-base` | 通用底座 | `gpt-image-2.x` 通用（基于官方文档整理；`2.6+` 含 `complexity`/`markup`/`svg`/`gif`） | [使用说明](./docs/skills/gpt-image-base.md) | [SKILL.md](./skills/gpt-image-base/SKILL.md) | 通用 Spec 格式规范、`flare` vs `sunburst` 选型、参数降级策略、防审核误杀与实战经验区 |
 | `gpt-image-costume-sheet` | 垂直专项 | **已实测**：`gpt-image-2.5-sunburst`；**理论兼容**：`2.6` 及相近 `2.x`（未逐一实测） | [使用说明](./docs/skills/gpt-image-costume-sheet.md) | [SKILL.md](./skills/gpt-image-costume-sheet/SKILL.md) | 角色服饰四大工作流（文生服饰设定板 / 人设图提衣 / 换装融合 / 多层立绘脱层），强制中英双语对照输出 |
 
 > 每个 Skill 的人类阅读说明统一放在仓库根目录的 `docs/skills/` 下（`skills/` 目录保持纯净，严格遵循 `agentskills.io` / OpenAI / Anthropic 规范，不放 `README.md`）。点击上方 **使用说明** 即可查看对话示例与快速上手指南。
