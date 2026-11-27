@@ -1,8 +1,8 @@
 {
   "name": "snoakari-aigc-skills",
   "displayName": "Snoakari AIGC Skills",
-  "description": "Modular AIGC prompting and workflow skill library covering OpenAI gpt-image-2.6/2.5 (base prompting, costume concept sheets) and future multi-modal generative models.",
-  "version": "0.1.0",
+  "description": "Modular AIGC prompting and workflow skill library covering OpenAI gpt-image-2.x (base prompting specs, character wardrobe asset workflows) and future multi-modal generative models.",
+  "version": "0.2.0",
   "author": {
     "name": "Licne",
     "url": "https://github.com/Licne"

@@ -13,7 +13,7 @@
 | Skill 名称 | 定位 | 适用范围与实测状态 | 使用说明 | AI 指令 | 简介 |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `gpt-image-base` | 通用底座 | `gpt-image-2.x` 通用（基于官方文档整理；`2.6+` 含 `complexity`/`markup`/`svg`/`gif`） | [使用说明](./docs/skills/gpt-image-base.md) | [SKILL.md](./skills/gpt-image-base/SKILL.md) | 通用 Spec 格式规范、`flare` vs `sunburst` 选型、参数降级策略、防审核误杀与实战经验区 |
-| `gpt-image-costume-sheet` | 垂直专项 | **已实测**：`gpt-image-2.5-sunburst`；**理论兼容**：`2.6` 及相近 `2.x`（未逐一实测） | [使用说明](./docs/skills/gpt-image-costume-sheet.md) | [SKILL.md](./skills/gpt-image-costume-sheet/SKILL.md) | 角色服饰四大工作流（文生服饰设定板 / 人设图提衣 / 换装融合 / 多层立绘脱层），强制中英双语对照输出 |
+| `gpt-image-wardrobe-workflow` | 垂直专项 | **已实测**：`gpt-image-2.5-sunburst`；**理论兼容**：`2.6` 及相近 `2.x`（未逐一实测） | [使用说明](./docs/skills/gpt-image-wardrobe-workflow.md) | [SKILL.md](./skills/gpt-image-wardrobe-workflow/SKILL.md) | 角色换装与服装美术资产四大工作流（设定板拆解 / 人设提衣 / 换装融合 / 多层脱层），强制中英双语对照输出 |
 
 > 每个 Skill 的人类阅读说明统一放在仓库根目录的 `docs/skills/` 下（`skills/` 目录保持纯净，严格遵循 `agentskills.io` / OpenAI / Anthropic 规范，不放 `README.md`）。点击上方 **使用说明** 即可查看对话示例与快速上手指南。
 
@@ -29,8 +29,8 @@
 # 交互式勾选想要安装的 Skill
 npx skills add Licne/snoakari-aigc-skills
 
-# 或按需精准安装（示例：GPT-Image 底座 + 服饰设定板专项）
-npx skills add Licne/snoakari-aigc-skills --skill gpt-image-base --skill gpt-image-costume-sheet
+# 或按需精准安装（示例：GPT-Image 底座 + 角色换装资产工作流专项）
+npx skills add Licne/snoakari-aigc-skills --skill gpt-image-base --skill gpt-image-wardrobe-workflow
 ```
 
 ### 方式 2：手动拷贝单目录

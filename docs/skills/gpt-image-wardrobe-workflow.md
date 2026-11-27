@@ -1,6 +1,6 @@
-# `gpt-image-costume-sheet` 使用说明
+# `gpt-image-wardrobe-workflow` 使用说明
 
-> **定位**：面向 GPT-Image 系列模型的**角色服饰概念设定板、服装提取、换装融合与脱层去衣**专项 Skill。  
+> **定位**：面向 GPT-Image 系列模型的**角色换装与服装美术资产工作流**（设定板拆解 / 人设提衣 / 角色换装融合 / 多层脱层去衣）专项 Skill。  
 > **实测与兼容说明**：本 Skill 最初基于 **`gpt-image-2.5-sunburst`** 实战打磨与验证；理论上兼容 **`gpt-image-2.6`**、同系列 `flare` 分支及其他相近 `gpt-image-2.x` 模型（尚未逐一实测，欢迎在 Issues 中反馈不同版本的实测表现）。  
 > **配套建议**：可独立使用，建议与 [`gpt-image-base`](./gpt-image-base.md) 搭配使用。
 
@@ -43,7 +43,7 @@
 
 - **自动规避审核误杀（Safety Guardrails）**：针对 GPT 系列生图模型的 `content_policy_violation` 误报，自动将 `undress / strip / school uniform / succubus / torn` 等高危词替换为视觉等效的安全工业术语。
 - **默认无杂乱引导线**：右侧细节特写默认排成干净的独立宫格，不画交叉箭头线（除非你主动要求加引导线）。
-- **画风自由定制 + 可选兜底**：默认按 4 要素公式适配任意画风（写实戏服、水彩手稿、美漫、二次元、三渲二等）；用户未指定画风时，自动回落至中性 2D 概念稿或 [`references/modules-guide.md`](../../skills/gpt-image-costume-sheet/references/modules-guide.md) 中的 6 套二次元/游戏可选预设。
+- **画风自由定制 + 可选兜底**：默认按 4 要素公式适配任意画风（写实戏服、水彩手稿、美漫、二次元、三渲二等）；用户未指定画风时，自动回落至中性 2D 概念稿或 [`references/modules-guide.md`](../../skills/gpt-image-wardrobe-workflow/references/modules-guide.md) 中的 6 套二次元/游戏可选预设。
 - **Mode D 防脑补参数**：在 `gpt-image-2.6-sunburst` 上跑脱层任务时，自动建议将 `complexity` 降为 `low` / `medium`，防止模型擅自多画道具。
 
 ---
@@ -52,10 +52,10 @@
 
 ```bash
 # 推荐搭配通用底座一起安装
-npx skills add Licne/snoakari-aigc-skills --skill gpt-image-base --skill gpt-image-costume-sheet
+npx skills add Licne/snoakari-aigc-skills --skill gpt-image-base --skill gpt-image-wardrobe-workflow
 
 # 或仅安装本 Skill
-npx skills add Licne/snoakari-aigc-skills --skill gpt-image-costume-sheet
+npx skills add Licne/snoakari-aigc-skills --skill gpt-image-wardrobe-workflow
 ```
 
-> 内部文件说明：[`SKILL.md`](../../skills/gpt-image-costume-sheet/SKILL.md) 为 AI 执行指令，[`references/modules-guide.md`](../../skills/gpt-image-costume-sheet/references/modules-guide.md) 包含 6 套画风预设、1~5+ 层服饰结构模板、9 类细节栏模块、安全词替换表等完整素材库。
+> 内部文件说明：[`SKILL.md`](../../skills/gpt-image-wardrobe-workflow/SKILL.md) 为 AI 执行指令，[`references/modules-guide.md`](../../skills/gpt-image-wardrobe-workflow/references/modules-guide.md) 包含 4 要素画风公式与可选预设、1~5+ 层服饰结构模板、9 类细节栏模块、安全词替换表及四大模式组装骨架。

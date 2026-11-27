@@ -4,7 +4,7 @@
 > **依据与兼容说明**：本 Skill 基于 OpenAI 官方 `gpt-image` 提示词指南、Cookbook 最佳实践与 API 文档整理（文档驱动基线，后续实战踩坑将持续沉淀至 `references/api-params.md` 的实战经验区）。
 > - **通用规范**（Spec 结构、材质/光影具象化、引号文字渲染、Diff 防漂移编辑、多图参考、透明底规范、防审核误杀原则）：理论上适用于整个 **`gpt-image-2.x` 系列**（如 `2.5` / `2.6` 的 `sunburst` 与 `flare` 分支，以及相近版本）。
 > - **`2.6+` 专属能力**（`complexity`、`markup` 标注编辑、`output_format: "svg"` / `"gif"`）：仅在目标模型/中转站支持对应参数时启用；不支持时会自动触发**降级策略**，改用纯 Prompt 等效写法。
-> - **与垂直 Skill 的边界**：本底座聚焦**通用格式与能力规范**，不堆砌特定业务领域的成品模板；细分场景模板由各垂直 Skill（如 [`gpt-image-costume-sheet`](./gpt-image-costume-sheet.md)）各自维护。
+> - **与垂直 Skill 的边界**：本底座聚焦**通用格式与能力规范**，不堆砌特定业务领域的成品模板；细分场景模板由各垂直 Skill（如 [`gpt-image-wardrobe-workflow`](./gpt-image-wardrobe-workflow.md)）各自维护。
 
 ---
 

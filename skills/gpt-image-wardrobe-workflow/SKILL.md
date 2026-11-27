@@ -1,25 +1,25 @@
 ---
-name: gpt-image-costume-sheet
+name: gpt-image-wardrobe-workflow
 description: >-
-  Specialized prompting skill originally built and verified on OpenAI
-  gpt-image-2.5-sunburst (and theoretically compatible with gpt-image-2.6 and
-  adjacent gpt-image-2.x models) covering four bilingual (English prompt + full
-  Chinese translation) character costume workflows: (1) characterless costume
-  concept breakdown sheets from text, (2) image-to-sheet costume extraction from
-  a character image, (3) character-to-costume fusion dressing a character with a
-  concept sheet, and (4) layer-removal / un-equipping prompts removing garments
-  shown in a reference sheet from a multi-layered character illustration. Use
-  whenever the user asks to design an outfit concept sheet, extract an outfit
-  from a character image, dress/fuse a character with a concept sheet, or
-  remove/unequip garment layers on gpt-image models.
+  Specialized character wardrobe & outfit asset workflow skill originally built
+  and verified on OpenAI gpt-image-2.5-sunburst (and theoretically compatible
+  with gpt-image-2.6 and adjacent gpt-image-2.x models) covering four bilingual
+  (English prompt + full Chinese translation) art-asset workflows: (1)
+  characterless outfit breakdown sheets from text, (2) image-to-sheet outfit
+  extraction from a character image, (3) character-to-outfit fusion dressing a
+  character with a wardrobe sheet, and (4) layer-removal / un-equipping prompts
+  removing garments shown in a reference sheet from a multi-layered character
+  illustration. Use whenever the user asks to design an outfit sheet, extract
+  outfits from a character image, dress/redress a character with wardrobe
+  assets, or unequip garment layers on gpt-image models.
 license: MIT
 metadata:
   author: Licne
   repository: https://github.com/Licne/snoakari-aigc-skills
-  version: "0.1.0"
+  version: "0.2.0"
 ---
 
-# GPT-Image Costume Sheet & Character Fusion Skill
+# GPT-Image Wardrobe Asset Workflow Skill
 
 > **Verified On**: **`gpt-image-2.5-sunburst`** (battle-tested in production workflows).
 > **Expected Compatibility**: Theoretically compatible with **`gpt-image-2.6-sunburst`**, `flare` variants, and other adjacent `gpt-image-2.x` models (not yet individually verified; note any version-specific parameter adjustments such as `complexity` for `2.6+`).

@@ -21,7 +21,7 @@ metadata:
 
 > **Basis**: Synthesized from OpenAI's official `gpt-image` prompting guides, Cookbook patterns, and API documentation (documentation baseline; empirical findings are tracked separately in [api-params.md](./references/api-params.md)).
 > **Model Scope**: Applies broadly to the **`gpt-image-2.x` family and adjacent GPT-class image models** (exemplified by `2.5` / `2.6` `sunburst` and `flare` variants). Core Spec formatting, text rendering, multi-image referencing, and Diff editing generalize across the series; features marked `2.6+` (`complexity`, `markup`, `svg`, `gif`) apply only when the target model/endpoint supports them.
-> **Role**: Pure format & universal capability base skill. Keep domain-specific templates in dedicated vertical skills (`gpt-image-*`, e.g., `gpt-image-costume-sheet`) and defer to them when applicable.
+> **Role**: Pure format & universal capability base skill. Keep domain-specific templates in dedicated vertical skills (`gpt-image-*`, e.g., `gpt-image-wardrobe-workflow`) and defer to them when applicable.
 
 ## Core Philosophy
 

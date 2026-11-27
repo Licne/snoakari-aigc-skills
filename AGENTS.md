@@ -37,7 +37,7 @@ snoakari-aigc-skills/
 
 1. **命名格式**：严格使用小写短横线 `<family>-<topic>`：
    - **系列底座**：`<family>-base`（如 `gpt-image-base`、`minimax-h3-base`），存放该系列的通用提示词结构、模型分支选型、API 参数表与通用避坑。
-   - **垂直专项**：`<family>-<domain>`（如 `gpt-image-costume-sheet`、`gpt-image-ecommerce`、`minimax-h3-cinematic`），只写本领域独有工作流、模块库和安全词替换。
+   - **垂直专项**：`<family>-<domain>`（如 `gpt-image-wardrobe-workflow`、`gpt-image-ecommerce`、`minimax-h3-cinematic`），只写本领域独有工作流、模块库和安全词替换。
 2. **禁止深层嵌套**：不要建 `skills/gpt-image/base/`，必须保持 `skills/<family>-<topic>/SKILL.md` 一层深度。
 3. **松耦合共存 + 配套增强（禁止强依赖）**：
    - **独立可用**：由于当前 Agent Skills 生态无自动依赖解析器，任何垂直专项 Skill 必须能**单独安装并 100% 独立跑通核心工作流**（自带本领域必需的精简参数速查与专属避坑），不得把关键执行条件甩给 `*-base`。
@@ -64,7 +64,7 @@ snoakari-aigc-skills/
 2. **人类使用说明（必写）**：在仓库根级 `docs/skills/<family>-<topic>.md` 创建/更新中文使用说明，必须包含：**依据来源与实测/理论兼容状态**（明确区分已实测模型与理论兼容范围）、功能概述、**“怎么对 AI 说”的具体对话示例**、输出说明与单独安装命令。
 3. **更新根目录 `README.md`**：同步更新“Skill 索引表”（链接到 `docs/skills/<family>-<topic>.md`）和对应的“选择性安装命令”示例。
 4. **检查 `plugin.json`**：确认 `description`、`version`（按语义化版本递增）和 `suggestedPrompts`（最多 3 条）依然准确；**切勿**添加非标准顶层字段。
-5. **Git 提交**：使用 Conventional Commits（如 `feat(skills): add minimax-h3-base`、`refactor(gpt-image-costume-sheet): refine Mode D rules`）。
+5. **Git 提交**：使用 Conventional Commits（如 `feat(skills): add minimax-h3-base`、`refactor(gpt-image-wardrobe-workflow): refine Mode D rules`）。
 
 ---
 
