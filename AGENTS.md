@@ -19,8 +19,8 @@ snoakari-aigc-skills/
 │   └── skills/
 │       └── <family>-<topic>.md  # 必需：面向人类阅读的中文使用说明与对话示例（严禁放进 skills/ 内部）
 ├── scripts/
-│   ├── link-plugin.ps1      # Windows 全局挂载脚本（Directory Junction）
-│   └── link-plugin.sh       # macOS/Linux 全局挂载脚本（Symlink）
+│   ├── link-plugin.ps1      # Windows 全局注册脚本（写入 ~/.gemini/config/plugins.json）
+│   └── link-plugin.sh       # macOS/Linux 全局注册脚本（写入 ~/.gemini/config/plugins.json）
 └── skills/
     └── <family>-<topic>/    # 所有 Skill 严格平铺于第一层，保持纯净（禁止放 README.md）
         ├── SKILL.md         # 必需：AI 读取的指令（YAML Frontmatter + 精简核心规则）
@@ -66,6 +66,6 @@ snoakari-aigc-skills/
 
 ## 5. 跨设备克隆与本地生效
 
-在任何新电脑 clone 本仓库后，运行对应平台的挂载脚本即可将仓库直接链接为本地 Antigravity 全局插件（单一数据源，修改仓库即实时生效）：
+在任何新电脑 clone 本仓库后，运行对应平台的注册脚本即可将仓库写入 `~/.gemini/config/plugins.json`（单一数据源，修改仓库即实时生效，避免 Windows Junction 被扫描器跳过）：
 - **Windows (PowerShell)**：`.\scripts\link-plugin.ps1`
 - **macOS / Linux**：`bash ./scripts/link-plugin.sh`

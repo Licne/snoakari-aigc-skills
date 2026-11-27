@@ -43,7 +43,7 @@ npx skills add Licne/snoakari-aigc-skills --skill gpt-image-base --skill gpt-ima
 
 ## 跨设备同步与开发者自用（Antigravity 整包挂载）
 
-如果你在多台电脑间同步维护本经验库，Clone 后运行对应脚本即可建立目录软链（单一数据源：在仓库里改完即刻全局生效，无需手动复制）：
+如果你在多台电脑间同步维护本经验库，Clone 后运行对应脚本即可将本仓库注册到 `~/.gemini/config/plugins.json`（Antigravity 官方外部插件注册机制，单一数据源：在仓库里改完即刻全局生效，无需复制，也不受 Windows 软链限制）：
 
 ```powershell
 # Windows (PowerShell)

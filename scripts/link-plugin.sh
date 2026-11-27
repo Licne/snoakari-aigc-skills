@@ -2,17 +2,29 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-PLUGINS_DIR="${HOME}/.gemini/config/plugins"
-LINK_PATH="${PLUGINS_DIR}/snoakari-aigc-skills"
+PARENT_DIR="$(dirname "${REPO_ROOT}")"
+REPO_NAME="$(basename "${REPO_ROOT}")"
 
-mkdir -p "${PLUGINS_DIR}"
+CONFIG_DIR="${HOME}/.gemini/config"
+PLUGINS_JSON="${CONFIG_DIR}/plugins.json"
+mkdir -p "${CONFIG_DIR}"
 
-if [ -L "${LINK_PATH}" ]; then
-  rm "${LINK_PATH}"
-elif [ -e "${LINK_PATH}" ]; then
-  echo "Error: ${LINK_PATH} already exists and is not a symlink." >&2
-  exit 1
-fi
+python3 - "${PLUGINS_JSON}" "${PARENT_DIR}" "${REPO_NAME}" <<'PY'
+import json, os, sys
+path, parent_dir, repo_name = sys.argv[1], sys.argv[2], sys.argv[3]
+data = {}
+if os.path.exists(path):
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+entries = [
+    e for e in data.get("entries", [])
+    if not (e.get("path") == parent_dir and repo_name in e.get("include_only", []))
+]
+entries.append({"path": parent_dir, "include_only": [repo_name]})
+data["entries"] = entries
+with open(path, "w", encoding="utf-8") as f:
+    json.dump(data, f, indent=2, ensure_ascii=False)
+    f.write("\n")
+PY
 
-ln -s "${REPO_ROOT}" "${LINK_PATH}"
-echo "Linked Antigravity plugin: ${LINK_PATH} -> ${REPO_ROOT}"
+echo "Registered Antigravity plugin in ${PLUGINS_JSON} -> ${PARENT_DIR}/${REPO_NAME}"
