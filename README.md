@@ -10,12 +10,12 @@
 
 ### GPT-Image 系列（`gpt-image-2.6` / `gpt-image-2.5`）
 
-| Skill 名称 | 定位 | 适用模型 | 说明 |
-| :--- | :--- | :--- | :--- |
-| [`gpt-image-base`](./skills/gpt-image-base/SKILL.md) | 通用底座 | `gpt-image-2.6` / `2.5` (`sunburst` & `flare`) | 通用 Spec 提示词结构、`flare` vs `sunburst` 选型、`complexity`/`quality`/`markup`/`svg`/`gif` 参数规范与 9 套通用模板 |
-| [`gpt-image-costume-sheet`](./skills/gpt-image-costume-sheet/SKILL.md) | 垂直专项 | `gpt-image-2.5-sunburst` / `2.6-sunburst` | 角色服饰四大工作流（文生无人物服饰设定板 / 人设图提取服饰 / 角色与设定板融合 / 多层立绘脱层去衣），强制中英双语对照输出 |
+| Skill 名称 | 定位 | 适用模型 | 使用说明 | AI 指令 | 简介 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `gpt-image-base` | 通用底座 | `gpt-image-2.6` / `2.5` (`sunburst` & `flare`) | [使用说明](./skills/gpt-image-base/README.md) | [SKILL.md](./skills/gpt-image-base/SKILL.md) | 通用 Spec 提示词结构、`flare` vs `sunburst` 选型、`complexity`/`quality`/`markup`/`svg`/`gif` 参数规范与 9 套通用模板 |
+| `gpt-image-costume-sheet` | 垂直专项 | `gpt-image-2.5-sunburst` / `2.6-sunburst` | [使用说明](./skills/gpt-image-costume-sheet/README.md) | [SKILL.md](./skills/gpt-image-costume-sheet/SKILL.md) | 角色服饰四大工作流（文生服饰设定板 / 人设图提衣 / 换装融合 / 多层立绘脱层），强制中英双语对照输出 |
 
-> 后续将持续扩展其他垂直场景与模型系列（如 `minimax-h3-*`、`veo-*` 等）。
+> 每个 Skill 目录都配有面向人类阅读的 `README.md`（包含具体怎么对 AI 说的对话示例），点击上方 **使用说明** 即可快速上手。后续将持续扩展其他垂直场景与模型系列（如 `minimax-h3-*`、`veo-*` 等）。
 
 ---
 

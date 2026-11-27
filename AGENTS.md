@@ -20,7 +20,8 @@ snoakari-aigc-skills/
 │   └── link-plugin.sh       # macOS/Linux 全局挂载脚本（Symlink）
 └── skills/
     └── <family>-<topic>/    # 所有 Skill 严格平铺于第一层
-        ├── SKILL.md         # 必需：YAML Frontmatter + 精简核心指令
+        ├── SKILL.md         # 必需：AI 读取的指令（YAML Frontmatter + 精简核心规则）
+        ├── README.md        # 必需：人类阅读的中文使用说明（场景、对话触发示例、安装命令）
         └── references/      # 可选：大段模板、参数表、模块库（渐进式加载）
 ```
 
@@ -50,11 +51,12 @@ snoakari-aigc-skills/
 
 ## 4. 新增或修改 Skill 时的必做同步清单
 
-每次新增、重命名或删除 Skill，必须同步完成以下 4 项：
-1. **Skill 文件**：创建/更新 `skills/<family>-<topic>/SKILL.md` 及必要的 `references/`。
-2. **更新 `README.md`**：同步更新“Skill 索引表”和对应的“选择性安装命令”示例。
-3. **检查 `plugin.json`**：确认 `description`、`version`（按语义化版本递增）和 `suggestedPrompts`（最多 3 条）依然准确；**切勿**添加非标准顶层字段。
-4. **Git 提交**：使用 Conventional Commits（如 `feat(skills): add minimax-h3-base`、`refactor(gpt-image-costume-sheet): refine Mode D rules`）。
+每次新增、重命名或删除 Skill，必须同步完成以下 5 项：
+1. **Skill 指令文件**：创建/更新 `skills/<family>-<topic>/SKILL.md` 及必要的 `references/`。
+2. **人类使用说明（必写）**：创建/更新 `skills/<family>-<topic>/README.md`（中文），必须包含：适用模型、功能概述、**“怎么对 AI 说”的具体对话示例**、输出说明与单独安装命令（注意：`README.md` 供人类与 GitHub 浏览，不占用 AI 执行上下文）。
+3. **更新根目录 `README.md`**：同步更新“Skill 索引表”（含 `使用说明` 链接）和对应的“选择性安装命令”示例。
+4. **检查 `plugin.json`**：确认 `description`、`version`（按语义化版本递增）和 `suggestedPrompts`（最多 3 条）依然准确；**切勿**添加非标准顶层字段。
+5. **Git 提交**：使用 Conventional Commits（如 `feat(skills): add minimax-h3-base`、`refactor(gpt-image-costume-sheet): refine Mode D rules`）。
 
 ---
 
