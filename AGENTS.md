@@ -39,10 +39,14 @@ snoakari-aigc-skills/
    - **系列底座**：`<family>-base`（如 `gpt-image-base`、`minimax-h3-base`），存放该系列的通用提示词结构、模型分支选型、API 参数表与通用避坑。
    - **垂直专项**：`<family>-<domain>`（如 `gpt-image-costume-sheet`、`gpt-image-ecommerce`、`minimax-h3-cinematic`），只写本领域独有工作流、模块库和安全词替换。
 2. **禁止深层嵌套**：不要建 `skills/gpt-image/base/`，必须保持 `skills/<family>-<topic>/SKILL.md` 一层深度。
-3. **禁止跨 Skill 重复复制底座规则**：垂直专项 Skill 开头注明 `Pairs with: <family>-base`，仅补充本领域特有的推荐 API 参数组合，不整段抄写底座的参数表。
-4. **Frontmatter 规范**：每个 `SKILL.md` 仅使用标准字段：
+3. **松耦合共存 + 配套增强（禁止强依赖）**：
+   - **独立可用**：由于当前 Agent Skills 生态无自动依赖解析器，任何垂直专项 Skill 必须能**单独安装并 100% 独立跑通核心工作流**（自带本领域必需的精简参数速查与专属避坑），不得把关键执行条件甩给 `*-base`。
+   - **互补不重复**：`*-base` 管广度与兜底（通用格式、全量参数、降级策略、未建专项的新场景），垂直专项管深度与专精；专项 Skill 开头注明 `Pairs with: <family>-base`，不整段抄写底座的通用参数大全。
+4. **Frontmatter 署名与规范**：每个 `SKILL.md` 必须使用 `agentskills.io` 标准字段，确保单独拆出分发时仍保留归属与协议：
    - `name`: 与目录名完全一致（小写短横线）。
    - `description`: 用第三人称清晰说明**适用模型系列**与**触发条件**，避免不同系列或底座与专项之间发生误触发。
+   - `license`: `MIT`
+   - `metadata`: 必填 `author: Licne`、`repository: https://github.com/Licne/snoakari-aigc-skills`、`version: "<semver>"`。
 
 ---
 

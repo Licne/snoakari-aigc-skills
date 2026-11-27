@@ -10,6 +10,11 @@ description: >-
   (complexity, quality, background, output_format, markup, input_fidelity),
   handling SVG/GIF/edit modes, avoiding policy false positives, or fixing drift
   in multi-turn edits.
+license: MIT
+metadata:
+  author: Licne
+  repository: https://github.com/Licne/snoakari-aigc-skills
+  version: "0.1.0"
 ---
 
 # GPT-Image Base Prompting & API Spec Skill

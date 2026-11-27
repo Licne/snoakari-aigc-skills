@@ -12,6 +12,11 @@ description: >-
   whenever the user asks to design an outfit concept sheet, extract an outfit
   from a character image, dress/fuse a character with a concept sheet, or
   remove/unequip garment layers on gpt-image models.
+license: MIT
+metadata:
+  author: Licne
+  repository: https://github.com/Licne/snoakari-aigc-skills
+  version: "0.1.0"
 ---
 
 # GPT-Image Costume Sheet & Character Fusion Skill

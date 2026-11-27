@@ -64,3 +64,9 @@ bash ./scripts/link-plugin.sh
 ## 开发与贡献规范
 
 本仓库根目录包含 [AGENTS.md](./AGENTS.md)，在任何新设备或新 AI 会话中打开本仓库时，Agent 会自动读取其中的命名规范、目录结构、底座/专项解耦规则与同步检查清单。
+
+---
+
+## License & 署名
+
+本项目采用 [MIT License](./LICENSE) 开源（Copyright © 2026 Licne）。每个独立 Skill 的 `SKILL.md` Frontmatter 均附带标准 `license` 与 `metadata`（`author` / `repository` / `version`）声明；欢迎按需选用、修改或二次分发，请按 MIT 协议保留原作者署名与许可声明。
