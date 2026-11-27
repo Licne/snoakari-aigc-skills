@@ -33,6 +33,7 @@ $entries += [PSCustomObject]@{
 }
 
 $payload = [PSCustomObject]@{ entries = $entries }
-$payload | ConvertTo-Json -Depth 5 | Set-Content -Path $pluginsJsonPath -Encoding UTF8
+$json = ($payload | ConvertTo-Json -Depth 5) + "`n"
+[System.IO.File]::WriteAllText($pluginsJsonPath, $json, (New-Object System.Text.UTF8Encoding($false)))
 
 Write-Host "Registered Antigravity plugin in $pluginsJsonPath -> $parentDir/$repoName" -ForegroundColor Green
