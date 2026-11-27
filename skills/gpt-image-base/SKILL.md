@@ -69,8 +69,9 @@ Use short, labeled blocks or line breaks instead of a single wall of text. Follo
 
 Key formatting rules:
 1. **Concrete physicality over buzzwords**: Describe real light, surfaces, and media (*soft natural side-lighting from the left*, *matte stoneware*, *flat vector geometry*).
-2. **Literal text**: Wrap exact rendered strings in `"double quotes"`, specify placement, font style, and contrast. Spell rare brand names/tricky words letter-by-letter (`'A-R-C-H-I-V-E'`).
-3. **Sunburst over-detailing guardrail**: Because `*-sunburst` can inject unrequested micro-details in dense scenes, append `minimalist, no extra micro-details or unrequested labels` when cleanliness matters.
+2. **Aspect ratio over pixel dimensions**: Always specify framing using **aspect ratios** (`1:1`, `3:2`, `16:9`, `2:3`, `9:16`) rather than hardcoding pixel resolutions (like `1024x1024` or `1536x1024`), so prompts stay portable across 1K / 2K / 4K endpoints.
+3. **Literal text**: Wrap exact rendered strings in `"double quotes"`, specify placement, font style, and contrast. Spell rare brand names/tricky words letter-by-letter (`'A-R-C-H-I-V-E'`).
+4. **Sunburst over-detailing guardrail**: Because `*-sunburst` can inject unrequested micro-details in dense scenes, append `minimalist, no extra micro-details or unrequested labels` when cleanliness matters.
 
 ---
 

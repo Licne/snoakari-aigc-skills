@@ -41,14 +41,14 @@ This skill generates modular, production-ready prompts for four character costum
 
 These are **API request parameters** (not prompt text), provided as optional reference alongside the generated prompt. Use `sunburst` for strongest layout fidelity, detail-panel separation, and identity/garment preservation.
 
-| Mode | Recommended Model | `size` | `quality` | `complexity` *(2.6+ optional)* | `input_fidelity` *(optional)* |
+| Mode | Recommended Model | Aspect Ratio | `quality` | `complexity` *(2.6+ optional)* | `input_fidelity` *(optional)* |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Mode A** (Text-to-Sheet) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | `1536x1024` | `high` | `high` | — |
-| **Mode B** (Image-to-Sheet) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | `1536x1024` | `high` | `high` | `high` |
-| **Mode C** (Character Fusion) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | `1024x1536` | `high` | `medium` / `high` | `high` |
+| **Mode A** (Text-to-Sheet) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | Landscape `3:2` / `16:9` | `high` | `high` | — |
+| **Mode B** (Image-to-Sheet) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | Landscape `3:2` / `16:9` | `high` | `high` | `high` |
+| **Mode C** (Character Fusion) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | Portrait `2:3` / `3:4` | `high` | `medium` / `high` | `high` |
 | **Mode D** (Layer Removal) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | Match `Image 1` | `high` | `low` / `medium` | `high` |
 
-> **Degradation Note**: `complexity` is a `gpt-image-2.6+` API parameter—**omit it on `gpt-image-2.5` or any relay/WebUI that does not expose it**. If `input_fidelity` is unavailable, the prompt's explicit preservation clauses serve as the fallback. In **Mode D** on `2.6+`, lowering `complexity` to `low`/`medium` helps prevent hallucinated props while reconstructing inner layers.
+> **Resolution & Degradation Note**: Always specify **aspect ratios** rather than hardcoding pixel dimensions (like `1536x1024` or `1024x1536`) so users can render freely at 1K, 2K, or 4K depending on their model/endpoint. `complexity` is a `gpt-image-2.6+` API parameter—**omit it on `gpt-image-2.5` or any relay/WebUI that does not expose it**. If `input_fidelity` is unavailable, the prompt's explicit preservation clauses serve as the fallback. In **Mode D** on `2.6+`, lowering `complexity` to `low`/`medium` helps prevent hallucinated props while reconstructing inner layers.
 
 ---
 
@@ -182,7 +182,7 @@ For GPT-class commercial image models (`gpt-image-2.5-sunburst`, `gpt-image-2.6-
 ## Output Format Standard
 
 When responding to the user with generated prompts:
-1. Briefly note the recommended API configuration (model, `size`, `quality`, `complexity`, `input_fidelity`) and any extracted/chosen design highlights (palette, layer count, selected detail panels, or style).
+1. Briefly note the recommended API configuration (model, **aspect ratio**—never hardcoded pixel dimensions, `quality`, optional `complexity` / `input_fidelity`) and any extracted/chosen design highlights (palette, layer count, selected detail panels, or style).
 2. Present each prompt inside a clean **English Prompt** code block (`markdown` or `text`) ready for one-click copy.
 3. Immediately follow each English prompt with a **`中文对照翻译`** block translating every section faithfully so the user can verify and tweak every detail easily.
 4. If the user asks for reusable templates rather than a filled design, provide the modular `[placeholder]` templates plus concise option lists, also with full Chinese translations.

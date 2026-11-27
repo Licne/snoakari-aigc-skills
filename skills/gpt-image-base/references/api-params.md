@@ -23,7 +23,7 @@ OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare
 | Parameter | Values | Default | Guidance |
 | :--- | :--- | :--- | :--- |
 | `prompt` | Up to 32,000 chars | — | Structured Spec; avoid legacy buzzwords (`8k`, `masterpiece`). |
-| `size` | `1024x1024`, `1536x1024`, `1024x1536`, `auto` | `auto` | Always set explicitly for deterministic aspect ratio. |
+| `size` / aspect ratio | Target ratio (`1:1`, `3:2`, `16:9`, `2:3`, `9:16`) or `auto` | `auto` | Specify **aspect ratio** rather than hardcoding pixel dimensions; map to the target endpoint's resolution tier (1K / 2K / 4K). |
 | `quality` | `auto`, `low`, `medium`, `high`, `xhigh`, `max` | `auto` | Governs fine texture & small-letter legibility. Relative to model tier (`flare` `high` ≠ `sunburst` `high`). |
 | `complexity` *(2.6)* | `low`, `medium`, `high` | `high` | Pre-render layout planning depth. Drop to `low` for simple edits to avoid over-generation; keep `high` for dense layouts/tables/menus. |
 | `background` | `auto`, `opaque`, `transparent` | `auto` | Use `transparent` for native RGBA cutouts. Requires `png` or `webp`. |
@@ -51,7 +51,7 @@ OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare
 {
   "model": "gpt-image-2.6-sunburst",
   "prompt": "...",
-  "size": "1536x1024",
+  "size": "<landscape 3:2 or 16:9 resolution supported by your endpoint>",
   "quality": "high",
   "complexity": "high",
   "output_format": "png",
@@ -64,7 +64,7 @@ OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare
 {
   "model": "gpt-image-2.6-sunburst",
   "prompt": "...",
-  "size": "1024x1024",
+  "size": "<square 1:1 resolution supported by your endpoint>",
   "quality": "high",
   "complexity": "low",
   "background": "transparent",
@@ -90,7 +90,7 @@ OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare
 {
   "model": "gpt-image-2.6-sunburst",
   "prompt": "...",
-  "size": "1024x1024",
+  "size": "<square 1:1 resolution supported by your endpoint>",
   "quality": "medium",
   "complexity": "medium",
   "output_format": "gif",
