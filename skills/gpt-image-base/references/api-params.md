@@ -23,7 +23,7 @@ OpenAI split the `gpt-image` API into dual workload tiers (`sunburst` vs. `flare
 | Parameter | Values | Default | Guidance |
 | :--- | :--- | :--- | :--- |
 | `prompt` | Up to 32,000 chars | — | Structured Spec; avoid legacy buzzwords (`8k`, `masterpiece`). |
-| `size` / aspect ratio | Target ratio (`1:1`, `3:2`, `16:9`, `2:3`, `9:16`) or `auto` | `auto` | Specify **aspect ratio** rather than hardcoding pixel dimensions; map to the target endpoint's resolution tier (1K / 2K / 4K). |
+| `size` / aspect ratio | Standard ratios: `1:1`, `3:2`, `2:3`, `16:9`, `9:16`, `4:3`, `3:4`, `21:9`, or `auto` | `auto` | Always preserve the user's exact requested **aspect ratio** (never silently downgrade `21:9` / `16:9` to legacy `1536x1024`); map to the target endpoint's resolution tier (1K / 2K / 4K). |
 | `quality` | `auto`, `low`, `medium`, `high`, `xhigh`, `max` | `auto` | Governs fine texture & small-letter legibility. Relative to model tier (`flare` `high` ≠ `sunburst` `high`). |
 | `complexity` *(2.6)* | `low`, `medium`, `high` | `high` | Pre-render layout planning depth. Drop to `low` for simple edits to avoid over-generation; keep `high` for dense layouts/tables/menus. |
 | `background` | `auto`, `opaque`, `transparent` | `auto` | Use `transparent` for native RGBA cutouts. Requires `png` or `webp`. |
