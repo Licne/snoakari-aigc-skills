@@ -69,7 +69,7 @@ Use short, labeled blocks or line breaks instead of a single wall of text. Follo
 
 Key formatting rules:
 1. **Concrete physicality over buzzwords**: Describe real light, surfaces, and media (*soft natural side-lighting from the left*, *matte stoneware*, *flat vector geometry*).
-2. **Aspect ratio over pixel dimensions (Never downgrade to legacy `1536x1024`)**: Always preserve the user's exact requested **aspect ratio** (standard set: `1:1`, `3:2`, `2:3`, `16:9`, `9:16`, `4:3`, `3:4`, `21:9`, or any custom ratio requested) instead of hardcoding pixel dimensions or silently falling back to legacy `gpt-image-1` sizes like `1536x1024` / `1024x1536`. Let the user/client map the ratio to their endpoint's 1K / 2K / 4K resolution tier.
+2. **Aspect ratio over pixel dimensions**: Preserve the user's requested **aspect ratio** (common ratios: `1:1`, `3:2`, `2:3`, `16:9`, `9:16`, `4:3`, `3:4`, `21:9`, or any custom ratio) instead of hardcoding fixed pixel resolutions, so prompts stay portable across 1K / 2K / 4K endpoints.
 3. **Literal text**: Wrap exact rendered strings in `"double quotes"`, specify placement, font style, and contrast. Spell rare brand names/tricky words letter-by-letter (`'A-R-C-H-I-V-E'`).
 4. **Sunburst over-detailing guardrail**: Because `*-sunburst` can inject unrequested micro-details in dense scenes, append `minimalist, no extra micro-details or unrequested labels` when cleanliness matters.
 
