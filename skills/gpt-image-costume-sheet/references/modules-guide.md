@@ -75,7 +75,7 @@ By default, introduce this section as:
 Use these building blocks when generating a costume breakdown sheet directly from an uploaded character image:
 
 ### A. Strict Character & Skin Removal Block (Required)
-`COMPLETELY OMIT the character, face, hair, head, neck, hands, legs, and all human skin. Render NO human figure and NO solid mannequin—present the extracted garments in an invisible ghost mannequin style (hollow 3D clothing silhouette floating with natural worn volume). Leave the interior of collars, sleeves, skirts, and stockings completely hollow and empty matching the clean background.`
+`COMPLETELY OMIT the character, face, hair, head, neck, hands, legs, and all human skin. Render NO human figure and NO solid mannequin—present the extracted garments in an invisible ghost mannequin style (hollow 3D clothing silhouette floating with natural worn volume). Leave the interior of collars, sleeves, hems, and legwear completely hollow and empty matching the clean background.`
 
 ### B. Art Style Lock vs. Override
 - **Match Source Image Style (Default)**: `Strictly match the exact art style, linework thickness, color palette, and cel-shading/rendering technique of the provided reference image.`
@@ -94,13 +94,13 @@ Mix these optional override blocks into Mode C based on user needs:
 
 ### A. Identity & Style Lock Variants
 - **Full Lock (Default)**: `Strictly preserve the character's exact face, hairstyle, hair color, eye details, body proportions, and exact art style (linework thickness, coloring, and shading technique) of Image 1.`
-- **Hairstyle Override**: `Strictly preserve the character's face, hair color, eye details, body proportions, and art style of Image 1, while re-styling her hair into [new hairstyle, e.g., high twin-tails / half-up bun].`
+- **Hairstyle Override**: `Strictly preserve the character's face, hair color, eye details, body proportions, and art style of Image 1, while re-styling the character's hair into [new hairstyle, e.g., high twin-tails / swept-back undercut / half-up bun].`
 - **Style Shift Override**: `Preserve the character's identity, facial features, hairstyle, and proportions from Image 1, rendered in [target style, e.g., polished Japanese semi-painted illustration].`
 
 ### B. Pose, Expression & Action Variants
-- **Clean Reusable Sprite**: `Natural relaxed three-quarter standing pose, arms slightly away from torso, gentle smile looking at viewer.`
+- **Clean Reusable Sprite**: `Natural relaxed three-quarter standing pose, arms slightly away from torso, gentle expression looking at viewer.`
 - **Playful Date / Casual**: `Lively three-quarter standing pose, weight shifted onto one hip, warm bright smile, one hand touching bag strap or lightly behind back.`
-- **Combat / Weapon Ready**: `Dynamic balanced stance, holding [weapon] cleanly angled outward/downward (not blocking torso or face), confident sharp gaze, hair and ribbons flowing in wind.`
+- **Combat / Weapon Ready**: `Dynamic balanced stance, holding [weapon] cleanly angled outward/downward (not blocking the torso or face), confident sharp gaze, hair and coat/ribbons flowing in wind.`
 
 ### C. Lighting & Atmosphere Variants
 - **Neutral Sprite Background (Default)**: `Even studio lighting on a clean solid pure white background.`
@@ -119,11 +119,11 @@ Use these building blocks when removing specific or all layers shown in `Image 2
 ### B. Inner-Layer Reconstruction & Safety Phrasing
 - `Keep all remaining underlying inner clothing layers from Image 1 intact, well-fitted, and cleanly rendered (naturally reconstructing any sleeves, shoulders, collar, waistband, or skirt portions previously covered by the omitted layer(s)).`
 - **Optional Hidden Part Specification**: `Where the omitted layer(s) covered the character, reveal [e.g., short puff sleeves of the inner white blouse / clean sleeveless vest straps / continuous pleated inner skirt].`
-- **Optional Footwear/Barefoot Fallback** (only if shoes/socks are among the removed items): `With footwear omitted, show clean bare feet resting naturally on the ground` OR `keep her inner stockings/socks intact`.
+- **Optional Footwear/Barefoot Fallback** (only if shoes/socks are among the removed items): `With footwear omitted, show clean bare feet resting naturally on the ground` OR `keep the inner socks/stockings intact`.
 
 ### C. Pose Handling for Un-equipped Sprites
 - **Exact Sprite Match (Default)**: `Strictly preserve the character's exact pose, body proportions, facial expression, hairstyle, art style, studio lighting, and clean background from Image 1.`
-- **Pose Adjustment Override** (if character was holding the removed coat/cloak/prop): `Preserve the character's identity, proportions, and art style from Image 1, while relaxing her hands/arms naturally at her sides now that the outer layer/prop is omitted.`
+- **Pose Adjustment Override** (if character was holding the removed coat/cloak/prop): `Preserve the character's identity, proportions, and art style from Image 1, while relaxing their hands/arms naturally at their sides now that the outer layer/prop is omitted.`
 
 ---
 
@@ -135,7 +135,58 @@ When building prompts for commercial models (`gpt-image-2.5-sunburst`, etc.), re
 | :--- | :--- | :--- |
 | Succubus / Devil theme | `succubus`, `lingerie`, `seductive`, `strip` | `chic twilight devil-themed fashion`, `playful impish aesthetic`, `modern gothic-cute` |
 | Extract outfit from image | `undress`, `strip clothes`, `take off clothes` | `isolate and extract ONLY the outfit design into a standalone wardrobe breakdown sheet` |
-| Remove outer coat/layers | `undress her`, `strip off`, `naked underneath` | `unequip / toggle off / omit the specified outer garment layer(s)`, `reveal the intact underlying inner layers` |
+| Remove outer coat/layers | `undress`, `strip off`, `naked underneath` | `unequip / toggle off / omit the specified outer garment layer(s)`, `reveal the intact underlying inner layers` |
 | Fitted underwear base | `panties`, `underwear`, `thong` | `high-cut athletic swim briefs`, `minimalist base-mesh briefs` |
 | Torn / broken ribbon | `torn`, `ripped`, `shredded` | `untied`, `frayed edges`, `split loose ribbon straps` |
 | School uniform | `school uniform`, `student` | `tailored blazer`, `pleated fashion skirt`, `preppy academy cardigan` |
+
+---
+
+## 8. Assembled Mode Skeletons (Standard Section Order)
+
+Follow these exact section orders so different AI agents produce consistent, reproducible prompts:
+
+### Mode A Skeleton (Text-to-Sheet)
+```text
+A professional 2D [Art Style] costume concept design sheet (wardrobe breakdown sheet) on a clean [Background] background, displaying ONLY clothing, accessories, and optional props—strictly NO character, NO human body, NO skin, and NO face. Invisible ghost mannequin style (hollow 3D clothing silhouette with natural worn volume).
+
+- Art Style & Rendering: [Style Block from Section 1]
+- Theme & Palette: [Primary / Secondary / Accent / Hardware colors]
+- Left Main Section (Front Three-Quarter View & Back View Side-by-Side):
+  * [Dynamic Layer 1..N from Section 2]
+- Right Side Section ([N] Clean Standalone Detail Panels in a Neat Grid, NO connecting lines or pointer arrows):
+  1. [Panel 1 from Section 3]
+  ...
+- Color Swatch Bar: [4–6] neat flat rectangular swatches along the bottom matching ONLY the outfit palette.
+- Layout Hygiene: Crisp thin panel borders, no pointer lines, strictly NO text labels, annotations, or captions anywhere on the sheet.
+```
+
+### Mode B Skeleton (Image-to-Sheet Extraction)
+```text
+Analyze the provided character illustration and isolate/extract ONLY the complete outfit, footwear, and wearable accessories into a standalone 2D wardrobe breakdown sheet on a clean [Background] background.
+[Strict Character & Skin Removal Block from Section 4A]
+[Art Style Lock or Override from Section 4B]
+- Left Main Section (Front & Logically Inferred Back View): [Dynamic Layer Extraction + Optional Pinned Items from Section 4C]
+- Right Side Section ([N] Standalone Detail Panels in a Neat Grid, NO connecting lines): [Selected Panel Types]
+- Color Swatch Bar: [Swatch Filtering from Section 4C — strictly excluding skin and hair colors]
+- Layout Hygiene: Crisp thin panel borders, no pointer lines, strictly NO text labels or garbled annotations.
+```
+
+### Mode C Skeleton (Character + Sheet Fusion)
+```text
+Create a cohesive full-body character illustration combining the character from Image 1 with the complete outfit from Image 2.
+- From Image 1 (Identity & Style): [Identity & Style Lock Variant from Section 5A]
+- From Image 2 (Costume Transfer): Dress the character accurately in the complete garments, inner layers, footwear, and accessories shown in Image 2 [plus Optional Additions / Omissions].
+- Sheet UI Cleanup: Do NOT include any layout frames, callout lines, inset zoom boxes, back-view duplicates, or color swatches from Image 2—render ONLY the single character wearing the complete outfit.
+- Pose & Action: [Pose Variant from Section 5B; include occlusion guard if holding props/weapons]
+- Lighting & Framing: [Lighting/Background Variant from Section 5C], full-body framing with generous margins.
+```
+
+### Mode D Skeleton (Layer Removal / Un-equipping)
+```text
+[Exclusion Reference Declaration D1 or D2 from Section 6A — MUST appear first]
+- Target Omission: Unequip and omit [specific outer item(s) / ALL garments and accessories depicted in Image 2] from the character in Image 1.
+- Inner-Layer Reconstruction: [Section 6B Reconstruction + Optional Hidden Inner-Layer Details + Optional Footwear Fallback]
+- Identity, Pose & Scene Preservation: [Section 6C Exact Sprite Match or Pose Adjustment Override]
+- Cleanup: Do NOT copy any layout boxes, swatches, or extra items from Image 2; do not add unrequested accessories or text.
+```

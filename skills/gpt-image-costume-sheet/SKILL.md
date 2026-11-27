@@ -37,18 +37,18 @@ This skill generates modular, production-ready prompts for four character costum
 
 ---
 
-## Recommended API Parameters by Mode
+## Recommended API Parameters by Mode *(Optional API-Side Reference)*
 
-Use `sunburst` for all four modes (strongest layout fidelity, detail-panel separation, and identity/garment preservation). Avoid `flare` for final renders in Mode B/C/D due to higher drift risk.
+These are **API request parameters** (not prompt text), provided as optional reference alongside the generated prompt. Use `sunburst` for strongest layout fidelity, detail-panel separation, and identity/garment preservation.
 
-| Mode | Recommended Model | `size` | `quality` | `complexity` *(2.6)* | `input_fidelity` |
+| Mode | Recommended Model | `size` | `quality` | `complexity` *(2.6+ optional)* | `input_fidelity` *(optional)* |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **Mode A** (Text-to-Sheet) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | `1536x1024` | `high` | `high` | — |
 | **Mode B** (Image-to-Sheet) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | `1536x1024` | `high` | `high` | `high` |
 | **Mode C** (Character Fusion) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | `1024x1536` | `high` | `medium` / `high` | `high` |
 | **Mode D** (Layer Removal) | `gpt-image-2.5-sunburst` / `2.6-sunburst` | Match `Image 1` | `high` | `low` / `medium` | `high` |
 
-> In **Mode D** on `gpt-image-2.6-sunburst`, keep `complexity` at `low` or `medium` so the model does not over-plan or hallucinate extra accessories while reconstructing inner layers.
+> **Degradation Note**: `complexity` is a `gpt-image-2.6+` API parameter—**omit it on `gpt-image-2.5` or any relay/WebUI that does not expose it**. If `input_fidelity` is unavailable, the prompt's explicit preservation clauses serve as the fallback. In **Mode D** on `2.6+`, lowering `complexity` to `low`/`medium` helps prevent hallucinated props while reconstructing inner layers.
 
 ---
 
@@ -64,7 +64,9 @@ Determine which mode(s) the user requests:
 - **Mode D (Layer Removal / Un-equipping)**: Removing specific or all garments depicted in `Image 2` from a multi-layered character in `Image 1` ("去掉图1中穿的图2外套/衣服", "脱掉外层服装只保留内搭", "指定去除某件衣服" / "全量去除").
 - **Combined Pipelines**: Output each requested stage in logical order (e.g., Mode B → Mode C, or Mode D → Mode C).
 
-Before generating, inspect [modules-guide.md](./references/modules-guide.md) when detailed options for art styles, garment layer patterns, detail panel presets, extraction guardrails, safety-filter word substitutions, or fusion pose/trait options are needed.
+Before generating, inspect [modules-guide.md](./references/modules-guide.md) for art styles, garment layer patterns, detail panel presets, extraction/fusion/removal blocks, safety-filter substitutions, and **Section 8 assembled mode skeletons** (follow the skeleton ordering to prevent drift across different AI agents).
+
+> **Gender-Neutral Default**: Use gender-neutral phrasing (`the character`, `their`, `hems and legwear`) unless the user specifies a female/male/specific character silhouette.
 
 ---
 
@@ -94,10 +96,11 @@ Allow **3 to 8 panels** (user-selected or smartly chosen to fit the theme) from 
 
 **Default Clean Grid Rule (No Callout Lines)**: Present right-side detail panels as a **clean, self-contained modular grid** (`neat grid of standalone inset boxes with no connecting lines, no pointer arrows, and no crossing callout lines`). Only add pointer/callout lines if the user explicitly asks for them.
 
-### 5. Palette & Cleanup Rules
+### 5. Palette, Text Labels & Cleanup Rules
 - Include `- Theme & Palette:` with explicit primary, secondary, accent, and hardware colors (and negative color constraints if requested).
 - Include `Color Swatch Bar:` matching the exact number of palette colors (typically 4–6 swatches).
-- End with layout hygiene: `Clean anime/graphic production art sheet layout, crisp thin panel borders, no connecting pointer lines between panels, zero messy text paragraphs or garbled labels.`
+- **Text Label Control (Default: Zero Text)**: By default, enforce `strictly NO text labels, annotations, callout titles, or captions anywhere on the sheet` to prevent garbled or mixed-language text. Only include quoted headers (e.g., `"FRONT"`, `"BACK"`) if the user explicitly requests labeled boards.
+- End with layout hygiene: `Clean anime/graphic production art sheet layout, crisp thin panel borders, no connecting pointer lines between panels, strictly no text labels or garbled annotations.`
 
 ---
 
@@ -106,21 +109,21 @@ Allow **3 to 8 panels** (user-selected or smartly chosen to fit the theme) from 
 Use Mode B when the user feeds an existing character image to an image-to-image model to isolate and extract the outfit into a concept sheet (or asks for a reusable extraction prompt template).
 
 ### Key Technical & Safety Principles
-1. **Never use stripping verbs**: Avoid `undress`, `strip`, `take off`, `remove clothes from her`. Always phrase as asset extraction: `Analyze the provided character illustration and isolate/extract ONLY the complete outfit, footwear, and wearable accessories into a standalone wardrobe breakdown sheet`.
+1. **Never use stripping verbs**: Avoid `undress`, `strip`, `take off`, `remove clothes from the character`. Always phrase as asset extraction: `Analyze the provided character illustration and isolate/extract ONLY the complete outfit, footwear, and wearable accessories into a standalone wardrobe breakdown sheet`.
 2. **Aggressive Ghost-Body Removal**: Image-to-image models strongly retain faces, necks, and limbs unless explicitly blocked. Always enforce:
    - `COMPLETELY OMIT the character, face, hair, head, neck, hands, legs, and all human skin.`
    - `Render NO human figure and NO solid mannequin—present the extracted garments in an invisible ghost mannequin style (hollow 3D clothing silhouette floating with natural worn volume).`
-   - `Leave the interior of collars, sleeves, skirts, and stockings completely hollow and empty matching the background.`
+   - `Leave the interior of collars, sleeves, hems, and legwear completely hollow and empty matching the background.`
 3. **Flexible Style Lock vs. Style Override**:
    - Default: lock the reference image's exact linework, shading, and color fidelity.
    - Override option: allow shifting the extracted sheet into another style (e.g., `re-render in semi-painted style` or `clean flat production sheet`).
 4. **Adaptive Layer & Panel Extraction**:
    - Let the model reconstruct all visible layers (1 to 5+ pieces) AND logically infer a consistent **back view** from the front design.
-   - Support **user-pinned highlight items** (small accessories like hairpins, garter clasps, hidden inner layers, or VFX that image models often overlook) as an optional slot inside the detail panels.
+   - Support **user-pinned highlight items** (small accessories like hairpins, clasps, hidden inner layers, or VFX that image models often overlook) as an optional slot inside the detail panels.
    - Exclude skin tones and hair colors from the extracted `Color Swatch Bar`.
-5. **Customizable Panel Count & Types (No Pointer Lines by Default)**:
+5. **Customizable Panel Count, Types & Text Hygiene**:
    - Default to 5–6 panels (Textile/Pattern, Collar/Neckwear, Head/Hair Accessories, Hardware/Waist/Props, Footwear/Legwear, optional Wireframe/VFX), customizable from 3 to 8 panels.
-   - Arrange panels in a **clean standalone grid without pointer lines or callout arrows** unless the user explicitly asks for connecting lines.
+   - Arrange panels in a **clean standalone grid without pointer lines, callout arrows, or text labels** unless the user explicitly asks for them.
 
 ---
 
@@ -139,7 +142,7 @@ Use Mode C when combining `Image 1` (character base) and `Image 2` (costume conc
    - Always include: `Do NOT include any layout frames, callout lines, inset zoom boxes, back-view duplicates, or color swatches from Image 2—render ONLY the single character wearing the complete outfit.`
 4. **Pose, Action & Weapon Handling**:
    - Customize posture, weight shift, gaze, expression, hand interactions, and motion.
-   - **Occlusion Guard**: Always include `(not blocking her torso or face)` when holding weapons or posing arms.
+   - **Occlusion Guard**: Always include `(not blocking the torso or face)` when holding weapons or posing arms.
 5. **Atmosphere, Lighting & Framing**:
    - Default to full-body reusable sprite (`Even studio lighting on a clean solid pure white / light grey background`, generous margins). Allow switching to dramatic splash-art lighting and environmental backgrounds on request.
 
@@ -151,9 +154,9 @@ Use Mode D when `Image 1` is a character wearing multiple layers (e.g., 4–6+ p
 
 ### Key Technical & Safety Principles
 1. **Treat `Image 2` Strictly as an Exclusion Mask (Never Fuse or Draw Board UI)**:
-   - Explicitly tell the model NOT to add `Image 2`'s clothes or layout boxes onto `Image 1`. Instead, `Image 2` serves purely to identify **which outer items on `Image 1` should be unequipped / hidden**.
+   - Place the exclusion declaration **at the very start** of the prompt so the model never confuses Mode D with Mode C. Explicitly state NOT to add `Image 2`'s clothes or layout boxes onto `Image 1`; `Image 2` serves purely to identify **which outer items on `Image 1` should be unequipped / hidden**.
 2. **Use Game-Asset Layer-Toggle Phrasing (Anti-Policy Violation)**:
-   - Avoid `undress`, `strip`, `take off her clothes`, or `naked`. Use `toggle off / unequip / omit the specified outer garment layer(s)` and `render the character in her intact underlying inner layers`.
+   - Avoid `undress`, `strip`, `take off their clothes`, or `naked`. Use `toggle off / unequip / omit the specified outer garment layer(s)` and `render the character in their intact underlying inner layers`.
 3. **Support Both Sub-Modes**:
    - **Sub-mode D1 — Selective Item Removal (指定去除)**: Remove ONLY the user-specified item(s) from `Image 2` (e.g., outer coat/cloak/hat/belt) while keeping all other layers on `Image 1` (including any other layers that happen to appear in `Image 2`) intact.
    - **Sub-mode D2 — Full Sheet Removal (全量去除)**: Remove EVERY garment, accessory, and footwear item depicted in `Image 2` from `Image 1`, leaving only the inner layers of `Image 1` that are NOT part of `Image 2`.
